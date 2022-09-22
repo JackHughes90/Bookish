@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Bookish.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Bookish.Controllers;
 
@@ -38,6 +39,7 @@ public class BookController : Controller
         List<Book> books = context.Books
             .Include(b => b.Authors)
             .ToList();
+
         return View(books);
     }
 }
