@@ -24,4 +24,16 @@ public class BookController : Controller
 
         return View(books);
     }
+
+    // [HttpGet]
+    // public IActionResult Add()
+    // {
+    //     return View();
+    // }
+
+    // [HttpPost]
+    // public IActionResult Add(string title, string author)
+    // {
+
+    // }
 }
