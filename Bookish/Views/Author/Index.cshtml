@@ -1,0 +1,22 @@
+@model List<Author>;
+
+@{
+    ViewData["Title"] = "Authors";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Authors</h1>
+    <ul>
+        @foreach (Author author in Model)
+        {   
+            <li>
+                <h2>@author.Name</h2>
+                 @foreach (Book book in @author.Books)
+                 {
+                    <p>@book.Title</p>
+                 }               
+            </li>
+        }
+    </ul>
+    
+</div>

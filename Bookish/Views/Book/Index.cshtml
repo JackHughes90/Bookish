@@ -15,7 +15,13 @@
                  @foreach (Author author in @book.Authors)
                  {
                     <p>By @author.Name</p>
-                 }               
+                 }
+                <ul>
+                @foreach (Genre genre in @book.Genres)
+                {
+                    <li>@genre.Name</li>
+                }
+                </ul>               
             </li>
         }
     </ul>

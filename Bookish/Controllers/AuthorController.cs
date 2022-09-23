@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bookish.Controllers;
 
-public class BookController : Controller
+public class AuthorController : Controller
 {
-    private readonly ILogger<BookController> _logger;
+    private readonly ILogger<AuthorController> _logger;
 
-    public BookController(ILogger<BookController> logger)
+    public AuthorController(ILogger<AuthorController> logger)
     {
         _logger = logger;
     }
@@ -17,11 +17,10 @@ public class BookController : Controller
     public IActionResult Index()
     {
         var context = new BookishContext();
-        List<Book> books = context.Books
-            .Include(b => b.Authors)
-            .Include(b => b.Genres)
+        List<Author> authors = context.Authors
+            .Include(b => b.Books)
             .ToList();
 
-        return View(books);
+        return View(authors);
     }
 }
