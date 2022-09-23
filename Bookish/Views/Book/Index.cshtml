@@ -11,11 +11,11 @@
         {   
             <li>
                 <h2>@book.Title</h2>
+                <img src= "@book.Image" class="img-thumbnail" alt="@book.Title"/>
                  @foreach (Author author in @book.Authors)
                  {
                     <p>By @author.Name</p>
-                 }
-               
+                 }               
             </li>
         }
     </ul>
