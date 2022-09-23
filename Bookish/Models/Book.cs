@@ -4,6 +4,7 @@ namespace Bookish.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        public string Image { get; set; }
         public List<Author> Authors { get; set;}
         public List<Tag> Tags { get; set; }
     }

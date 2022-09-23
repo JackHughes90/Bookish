@@ -8,10 +8,14 @@
     <h1 class="display-4">Books</h1>
     <ul>
         @foreach (Book book in Model)
-        {
+        {   
             <li>
                 <h2>@book.Title</h2>
-                @* <p>By @book.Author</p> *@
+                <img src= "@book.Image" class="img-thumbnail" alt="@book.Title"/>
+                 @foreach (Author author in @book.Authors)
+                 {
+                    <p>By @author.Name</p>
+                 }               
             </li>
         }
     </ul>
