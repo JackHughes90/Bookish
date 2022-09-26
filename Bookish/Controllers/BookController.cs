@@ -25,15 +25,16 @@ public class BookController : Controller
         return View(books);
     }
 
+    [HttpPost("")]
+    public IActionResult Create([FromForm] Book newBook)
+    {
+        var context = new BookishContext();
+        var addedEntity = context.Books.Add(newBook);
+    }
+
     // [HttpGet]
     // public IActionResult Add()
     // {
     //     return View();
-    // }
-
-    // [HttpPost]
-    // public IActionResult Add(string title, string author)
-    // {
-
     // }
 }
