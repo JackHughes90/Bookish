@@ -3,9 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Bookish.Models;
 using Bookish.Models.Requests;
 using Microsoft.EntityFrameworkCore;
-using Bookish;
 
-namespace Inventory.Controllers;
+namespace Bookish.Controllers;
 
 public class BookInventoryController : Controller
 {
@@ -16,29 +15,34 @@ public class BookInventoryController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
-    {
-        var context = new BookishContext();
-        Book book = context.Book
-            .Include(b => b.Authors) // do we need that?
-            .Include(b => b.Genres) // do we need that?
-            .ToList();
-
-        return View(book);
-    }
-
     [HttpPost("")]
     public IActionResult addCopy([FromForm] BookInventory newBookCopy)
     {
-        var context = new BookishContext();// all the database jazz
+        var context = new BookishContext(); // all the database jazz
 
-        // Make new authors (quick and dirty - will duplicate authors of same name)
-        BookInventory newBookCopy = new BookInventory
+        BookInventory bookInventory = new BookInventory();
+       
+
+        /*  - In the controller
+            get all books. 
+        */
+
+        List<Book> books = context.Books
+                            .ToList();
+
+
+        /*    - In the form
+            List all books
+            Tick if are in stock
+            Submit form     
+        */
+
+        Book bookCopy = new Book
         {
-            Title = newBookCopy.Title
+            Id = newBookCopy.Id,
         };
 
-        var addedEntity = context.Books.Add(newBookCopy);
+        var addedEntity = context.Books.Add(bookCopy);
 
         context.SaveChanges();
 

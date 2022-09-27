@@ -52,8 +52,8 @@ public class BookController : Controller
 
         Book newBook = new Book
         {
-            Title = newBookRequest.Title,
-            Image = newBookRequest.Image,
+            Title   = newBookRequest.Title,
+            Image   = newBookRequest.Image,
             Authors = newBookAuthors,
         };
 
