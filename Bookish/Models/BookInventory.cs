@@ -1,6 +1,6 @@
 namespace Bookish.Models
 {
-    public class Inventory
+    public class BookInventory
     {
         public int Id { get; set; }
         public Book Book { get; set; }

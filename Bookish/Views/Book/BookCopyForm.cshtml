@@ -1,0 +1,16 @@
+@using Bookish.Models
+@model BookInventory
+@{
+    ViewData["Title"] = "Add Book Copy";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Add Book</h1>
+    <form asp-controller="BookInventory" asp-action="addCopy" method="post">
+        <label>
+            Title
+            <select asp-for="Book.Title" asp-items="@ViewBag.Books"></select>
+        </label>
+        <input type="submit" value="Add Copy">
+    </form>
+</div>

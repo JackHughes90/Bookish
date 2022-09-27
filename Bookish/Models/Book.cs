@@ -7,6 +7,6 @@ namespace Bookish.Models
         public string Image { get; set; }
         public List<Author> Authors { get; set;}
         public List<Genre> Genres { get; set; }
-        public List<Inventory> Inventory { get; set; }
+        public List<BookInventory> BookInventory { get; set; }
     }
 }
